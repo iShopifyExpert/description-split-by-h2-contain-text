@@ -1,0 +1,11 @@
+{%comment%}
+Descroption
+<h2>TOOLS YOU NEED</h2>
+<p>anything 1</p>
+<h2>INGREDIENTS</h2>
+<p>anything 2</p>
+{%endcomment%}
+{% assign articleparts = article.content | split: '<h2>' %}
+{% for articlepart in articleparts %}{% if articlepart contains 'TOOLS YOU NEED' %}
+   {{articlepart | prepend: '<h2>'}}
+{% endif %}{% endfor %}
